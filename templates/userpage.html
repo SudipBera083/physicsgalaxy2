@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'physicsGalaxy/images/logo1.png' %}">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>PhysicsGalaxy: Exam</title>
+</head>
+
+<body>
+
+
+    <!--NAVBAR  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="visit_home">Physics Galaxy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="visit_home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='about_us'>About</a>
+                </li>
+
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;&nbsp;&nbsp;
+
+            </form>
+            <!-- <form class="form-inline my-2 my-lg-0" action="log_in_to_quiz" method="post">{% csrf_token %}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Student</button>&nbsp;&nbsp;&nbsp;
+            </form> -->
+
+        </div>
+    </nav>
+    <!-- ------------------------------------------------------ -->
+
+
+    <!-- ADDING CARD -->
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="visit_home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="exam">Exam</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" id="nameEntry"></h5>
+            <h5 class="card-title">Welcome to the Exam Pannel</h5>
+            <p class="card-text">Students are told to give their exams carefully.
+                <br>Please go through our <a href="study_material">Study Materials</a></p>
+            <a href="special_exam" class="btn btn-primary">Start</a>
+
+        </div>
+    </div>
+    <!-- -------------------------------- -->
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

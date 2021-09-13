@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'physicsGalaxy/images/logo1.png' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+
+    <script>
+        function getName() {
+
+            login = document.getElementById("login").value;
+            password = document.getElementById("password").value;
+            if (login == 'PhysicsGalaxy_Students') {
+                if (password == 'PhysicsGalaxy_Students') {
+                    User_name = document.getElementById('userName').value;
+                    alert("Welcome " + User_name);
+                    return true;
+
+
+
+                } else {
+                    alert("Wrong Password!");
+                    window.history.back();
+                    return false;
+
+
+                }
+            } else {
+                alert("Invalid User name:");
+                window.history.back();
+                return false;
+
+
+            }
+
+
+
+        }
+    </script>
+</head>
+
+<div class="container">
+    <div class="login">
+        <h1>Login</h1>
+        <form method="post" action="log_in_to_quiz" onsubmit="return getName()">{% csrf_token %}
+
+            <p><input type="text" id="login" value="" placeholder="Username or Email" required></p>
+            <p><input type="password" id="password" name="password" value="" placeholder="Password" required></p>
+            <p><input type="text" id="userName" name="user_name" value="" placeholder="User Name" required></p>
+            <p class="remember_me">
+                <input type="checkbox" name="remember_me" id="remember_me" checked>
+                <label for="remember_me"><span class="box"></span>Remember me on this computer</label>
+            </p>
+            <p class="submit"><input type="submit" name="commit" value="Login"></p>
+        </form>
+    </div>
+</div>
+
+</html>

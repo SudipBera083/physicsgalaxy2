@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'physicsGalaxy/images/logo1.png' %}">
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>PhysicsGalaxy: Exam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#b1").click(function() {
+                $(".rb").show();
+                $(".rb").attr("disabled", true);
+
+
+            });
+        });
+
+
+        function getanswers() {
+            document.getElementById("UserAnswers").innerHTML = "";
+            var e = document.getElementsByTagName("input");
+            for (i = 0; i <= e.length; i++) {
+                if (e[i].type == "radio") {
+                    if (e[i].checked) {
+                        document.getElementById("UserAnswers").innerHTML += "Q " + " The Answers You Are Selected Is : " + e[i].value + "<br>";
+
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!--NAVBAR  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="visit_home">Physics Galaxy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="visit_home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='about_us'>About</a>
+                </li>
+
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> &nbsp;&nbsp;&nbsp;
+
+            </form>
+            <form class="form-inline my-2 my-lg-0" action="log_in_to_quiz" method="post">{% csrf_token %}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Student</button>&nbsp;&nbsp;&nbsp;
+            </form>
+
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LogInModal">
+                Log In
+              </button>&nbsp;&nbsp;&nbsp;
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Sing Up
+              </button> -->
+
+        </div>
+    </nav>
+    <!-- ------------------------------------------------------ -->
+
+    <!-- ADDING HEADING -->
+    <div class="alert alert-info" role="alert">
+        Students are told to provide their exams with self- invigilation. Students can provide their scheduled exams from <a href="log_in_to_quiz">here.</a>
+    </div>
+    <div class="container">
+        <h5 class="text-center">CHECK YOUR QUESTIONS</h5>
+    </div>
+
+    <!-- ------------------------------ -->
+    <!-- ADDING QUESTIONS IN THE PAGE -->
+
+    <div class="container">
+        <hr>
+        <div>
+            {% for i in normal_exam %}
+            <table>
+                <tr>
+                    <td class="text-primary">{{i.question}} </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" class="rb" name={{i.id}} id="a" value="{{i.a}}"> {{i.a}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" class="rb" name={{i.id}} id="b" value="{{i.b}}"> {{i.b}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" class="rb" name={{i.id}} id="c" value="{{i.c}}"> {{i.c}}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" class="rb" name={{i.id}} id="d" value="{{i.d}}"> {{i.d}}</td>
+                </tr>
+
+                <tr>
+                    <td><label id="corans" class="rb" style="display:none ; color : green">Correct Ans: <b>{{i.currect_ans}}</b></label></td>
+                </tr>
+
+            </table>
+            <hr> {% endfor %}
+            <input type="submit" class="btn btn-success" value="Submit" id="b1" onclick="getanswers()">
+            <br>
+            <b id="UserAnswers"></b>
+        </div>
+    </div>
+    <!-- ------------------------------------------ -->
+
+    <br>
+    <br>
+    <!-- FOOTER -->
+
+    <footer class="footer footer-dark bg-dark">
+        <div class="container text-center">
+            <span class="text-center" style="color: aliceblue">PHYSICS GALAXY :: </span>
+            <span class="text-center" style="color: aliceblue"> Copyright © 2021-2022 PhysicsGalaxy.com</span>
+            <br>
+            <span style="color: aliceblue">Designed by Sudip Bera</span>
+        </div>
+    </footer>
+    <!-- --------------------------------------------------------------- -->
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
