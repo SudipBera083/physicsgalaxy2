@@ -1,0 +1,1 @@
+web: physicsGalaxy.wsgi:applications
